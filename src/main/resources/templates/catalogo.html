@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Catalogo</title>
+</head>
+<body>
+    <h1>Catalogo</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Codice</th>
+                <th>Nome</th>
+                <th>Categoria</th>
+                <th>Anno Produzione</th>
+                <th>Quantità</th>
+                <th>Dettaglio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="prodotto : ${prodotti}">
+                <td th:text="${prodotto.codice}"></td>
+                <td th:text="${prodotto.nome}"></td>
+                <td th:text="${prodotto.categoria}"></td>
+                <td th:text="${prodotto.annoProduzione}"></td>
+                <td th:text="${prodotto.quantita}"></td>
+                <td><a th:href="@{/prodotto/{codice}(codice=${prodotto.codice})}">Dettaglio</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/prodotto/nuovo">Aggiungi Prodotto</a>
+    <form method="post" action="/catalogo/svuota">
+        <button type="submit">Svuota Catalogo</button>
+    </form>
+</body>
+</html>

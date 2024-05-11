@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dettaglio Prodotto</title>
+</head>
+<body>
+    <h1>Dettaglio Prodotto</h1>
+    <p>Codice: <span th:text="${prodotto.codice}"></span></p>
+    <p>Nome: <span th:text="${prodotto.nome}"></span></p>
+    <p>Categoria: <span th:text="${prodotto.categoria}"></span></p>
+    <p>Anno Produzione: <span th:text="${prodotto.annoProduzione}"></span></p>
+    <p>Quantità: <span th:text="${prodotto.quantita}"></span></p>
+    <form method="post" th:action="@{/prodotto/{codice}/elimina(codice=${prodotto.codice})}">
+        <button type="submit">Elimina</button>
+    </form>
+    <a href="/catalogo">Torna alla Home</a>
+</body>
+</html>
